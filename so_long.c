@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/06/17 22:07:41 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/06/20 18:47:52 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main()
 	mlx_ptr = mlx_init();
 	if (mlx_ptr == NULL)
 		return (MLX_ERROR);
-	mlx_win = mlx_new_window(mlx_ptr, 1920, 1080, "So_long");
+	mlx_win = mlx_new_window(mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "So_long");
 	if (mlx_win == NULL)
 	{
 		free(mlx_ptr);
