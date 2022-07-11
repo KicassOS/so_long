@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/06/20 18:47:52 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/11 22:35:08 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main()
 	mlx_win = mlx_new_window(mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "So_long");
 	if (mlx_win == NULL)
 	{
-		free(mlx_ptr);
+		ft_free_void(&mlx_ptr);
 		return (MLX_ERROR);
 	}
 	sleep(2);
@@ -35,5 +35,5 @@ void	ft_close(void **mlx_ptr, void **mlx_win)
 {
 	mlx_destroy_window(*mlx_ptr, *mlx_win);
 	mlx_destroy_display(*mlx_ptr);
-	free(*mlx_ptr);
+	ft_free_void(mlx_ptr);
 }
