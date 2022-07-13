@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+         #
+#    By: psz <psz@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 19:22:49 by pszleper          #+#    #+#              #
-#    Updated: 2022/06/17 20:05:08 by pszleper         ###   ########.fr        #
+#    Updated: 2022/07/13 18:50:48 by psz              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,18 @@ SRC = so_long.c
 
 OBJECTS = $(SRC:.c=.o)
 
-all: libft.a $(NAME)
+all: libmlx_Linux.a libft.a $(NAME)
 
-$(NAME): libft.a $(OBJECTS)
+$(NAME): libmlx_Linux.a libft.a $(OBJECTS)
 	$(CC) $(OBJECTS) libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: %.c
 	$(CC) $(FLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
+
+libmlx_Linux.a:
+	make -C mlx_linux
+	cp mlx_linux/libmlx_Linux.a .
+	cp mlx_linux/mlx.h .
 
 libft.a:
 	make -C Libft
