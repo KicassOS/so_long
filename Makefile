@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: psz <psz@student.42.fr>                    +#+  +:+       +#+         #
+#    By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 19:22:49 by pszleper          #+#    #+#              #
-#    Updated: 2022/07/13 19:03:03 by psz              ###   ########.fr        #
+#    Updated: 2022/07/14 19:01:18 by pszleper         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME = so_long
 HEADER = so_long.h Libft/libft.h Libft/get_next_line/get_next_line.h \
 		 Libft/ft_printf/ft_printf.h
 
-SRC = so_long.c utils.c
+SRC = so_long.c utils.c map_validations.c
 
 OBJECTS = $(SRC:.c=.o)
 
@@ -42,6 +42,7 @@ libft.a:
 
 clean:
 	rm -f *.o
+	make -C Libft fclean
 
 fclean: clean
 	rm -f $(NAME)
