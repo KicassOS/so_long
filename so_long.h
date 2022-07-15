@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/14 04:15:37 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/15 01:13:19 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 void	ft_free_void(void **ptr);
 
-char	ft_map_is_valid(char *map_name);
+char	ft_map_is_valid(char *map_name, char *map_contents);
 
 void	ft_close(void **mlx_ptr, void **mlx_win);
 
