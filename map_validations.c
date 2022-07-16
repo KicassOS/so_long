@@ -6,13 +6,13 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:31:28 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/15 01:21:42 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/16 17:14:01 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-//returns 1 if the file ends with .ber, 0 if not
+/* returns 1 if the file ends with .ber, 0 if not */
 char	ft_check_file_format(char *map_name)
 {
 	char	*extension;
@@ -26,7 +26,7 @@ char	ft_check_file_format(char *map_name)
 	return (0);
 }
 
-//returns 1 if the characters 0, 1, C, E and P are present, 0 if not
+/* returns 1 if the characters 0, 1, C, E and P are present, 0 if not */
 char	ft_check_nodes_present(char *map_contents)
 {
 	int		i;
@@ -53,15 +53,81 @@ char	ft_check_nodes_present(char *map_contents)
 	return (0);
 }
 
-char	ft_map_is_valid(char *map_name, char *map_contents)
+/* returns 1 if only 0, 1, C, E and P are present, 0 if not */
+char	ft_map_no_other_nodes(char *map_contents)
 {
-	if (!ft_check_file_format(map_name))
+	int		i;
+	char	current;
+
+	i = 0;
+	while (map_contents[i])
+	{
+		current = map_contents[i];
+		if (current != '0' && current != '1' && current != 'C'
+			&& current != 'E' && current != 'P')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+/* returns 1 if the map is rectangular, returns 0 if not
+** a single line is considered a rectangle, and so is a single column */
+char	ft_map_is_rectangular(char *map_contents)
+{
+	int	width;
+	int	current;
+
+	current = 0;
+	while (*map_contents && *map_contents != '\n')
+	{
+		current++;
+		map_contents++;
+	}
+	width = current;
+	while (*map_contents)
+	{
+		if (*map_contents == '\n' && width != current)
+			return (0);
+		if (*map_contents == '\n' && width == current)
+		{
+			current = 0;
+			map_contents++;
+			continue ;
+		}
+		map_contents++;
+		current++;
+	}
+	return (1);
+}
+
+/* returns 1 if the map's height and width are at least 3 blocks
+** 0 if they're not */
+char	ft_map_minimum_size(char *map_contents)
+{
+	int	width;
+	int	height;
+	int	line_has_char;
+
+	height = 0;
+	while (*map_contents)
+	{
+		width = 0;
+		if (*map_contents == '\n')
+		{
+			if (width < 3)
+				return (0);
+			height++;
+			line_has_char = 0;
+		}
+		if (map_contents != '\n')
+		{
+			line_has_char = 1;
+			width++;
+		}
+		map_contents++;
+	}
+	if (height < 3 && line_has_char == 0)
 		return (0);
-	if (!ft_check_nodes_present(map_contents))
-		return (0);
-	// if (!ft_map_is_rectangular(map_contents))
-	// 	return (0);
-	// if (!ft_map_no_other_nodes(map_contents))
-	// 	return (0);
 	return (1);
 }
