@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/16 23:21:11 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/17 03:53:14 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	ft_free_void(void **ptr);
 void	ft_print_error(char *error_message);
 
 /* map_utils.c */
-char	ft_get_map_width(char *map_contents);
-char	ft_get_map_height(char *map_contents);
+int		ft_get_map_width(char *map_contents);
+int		ft_get_map_height(char *map_contents);
+char	ft_is_map_node(char c);
 
 /* map_validations.c */
 char	ft_check_file_format(char *map_name);
@@ -44,7 +45,7 @@ char	ft_only_one_starting_pos(char *map_contents);
 
 /* wall_checker.c */
 char	ft_line_only_walls(char *map_contents);
-char	ft_column_only_walls(char *map_contents, int i, int map_width, char *which);
+char	ft_column_only_walls(char *map_contents, int i, int map_width, char *s);
 char	ft_surrounded_walls(char *map_contents);
 
 /* error_handling.c */

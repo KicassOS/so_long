@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:31:31 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/16 18:35:27 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/17 03:54:07 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ char	ft_line_only_walls(char *map_contents)
 
 /* returns 1 if the "which" starting at index i contains only walls
 ** which is either "Left" or "Right" */
-char	ft_column_only_walls(char *map_contents, int i, int map_width, char *which)
+char	ft_column_only_walls(char *map_contents, int i, int map_width, char *s)
 {
 	int	i;
 
 	i = 0;
-	if (ft_strncmp(which, "Left", 4) == 0)
+	if (ft_strncmp(s, "Left", 4) == 0)
 	{
 		while ()
 	}

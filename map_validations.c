@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:31:28 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/16 17:14:01 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/17 03:07:15 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	ft_map_no_other_nodes(char *map_contents)
 	{
 		current = map_contents[i];
 		if (current != '0' && current != '1' && current != 'C'
-			&& current != 'E' && current != 'P')
+			&& current != 'E' && current != 'P' && current != '\n')
 			return (0);
 		i++;
 	}

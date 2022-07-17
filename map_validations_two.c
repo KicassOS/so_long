@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/16 18:33:34 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/17 03:21:28 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	ft_only_one_starting_pos(char *map_contents)
 			count++;
 		map_contents++;
 	}
-	if (count > 1)
+	if (count > 1 || count == 0)
 		return (0);
 	return (1);
 }
@@ -44,7 +44,7 @@ char	ft_map_is_valid(char *map_name, char *map_contents)
 {
 	if (!ft_check_file_format(map_name))
 	{
-		ft_print_error("Invalid file format, must end with .ber");
+		ft_print_error("Invalid file format, file must have a .ber extension");
 		return (0);
 	}
 	if (!ft_check_nodes_present(map_contents))
