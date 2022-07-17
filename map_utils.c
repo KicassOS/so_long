@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:36:59 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 03:55:47 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/17 04:07:04 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	ft_get_map_height(char *map_contents)
 	{
 		if (*map_contents == '\n' && ft_is_map_node(*(map_contents + 1)))
 			height++;
+		map_contents++;
 	}
 	return (height);
 }
