@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 03:53:14 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/17 04:55:58 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ char	ft_map_is_valid_second(char *map_name, char *map_contents);
 char	ft_only_one_starting_pos(char *map_contents);
 
 /* wall_checker.c */
-char	ft_line_only_walls(char *map_contents);
-char	ft_column_only_walls(char *map_contents, int i, int map_width, char *s);
-char	ft_surrounded_walls(char *map_contents);
+char	ft_first_line_only_walls(char *map_contents);
+char	ft_last_line_only_walls(char *map_contents);
+char	ft_left_column_only_walls(char *map_contents);
+char	ft_right_column_only_walls(char *map_contents);
+char	ft_surrounded_by_walls(char *map_contents);
 
 /* error_handling.c */
 char	ft_check_errors_main(int argc, char *map_name, char *map_contents);
