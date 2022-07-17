@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:31:28 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 03:07:15 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/17 05:16:13 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,23 @@ char	ft_check_file_format(char *map_name)
 char	ft_check_nodes_present(char *map_contents)
 {
 	int		i;
-	char	required[6];
+	char	required[5];
 
 	i = 0;
-	ft_strlcpy(required, "\0\0\0\0\0\0", 6);
+	ft_strlcpy(required, "\0\0\0\0\0", 5);
 	while (map_contents[i])
 	{
-		if (map_contents[i] == '0')
-			required[0] = '0';
-		else if (map_contents[i] == '1')
-			required[1] = '1';
+		if (map_contents[i] == '1')
+			required[0] = '1';
 		else if (map_contents[i] == 'C')
-			required[2] = 'C';
+			required[1] = 'C';
 		else if (map_contents[i] == 'E')
-			required[3] = 'E';
+			required[2] = 'E';
 		else if (map_contents[i] == 'P')
-			required[4] = 'P';
+			required[3] = 'P';
 		i++;
 	}
-	if (ft_strncmp(required, "01CEP", 5) == 0)
+	if (ft_strncmp(required, "1CEP", 4) == 0)
 		return (1);
 	return (0);
 }
