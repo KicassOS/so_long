@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:31:31 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 04:54:59 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:06:43 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ char	ft_right_column_only_walls(char *map_contents)
 		i++;
 	}
 	if (map_contents[i - 1] == '\n')
+	{
 		if (map_contents[i - 2] != '1')
 			return (0);
+	}
 	else if (map_contents[i - 1] != '1')
 		return (0);
 	return (1);

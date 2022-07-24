@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 15:30:55 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:13:50 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 ** inputs its' contents into map_contents which it returns */
 char	*ft_initialize(int argc, char **argv)
 {
-	int		fd;
 	char	*map_contents;
 
 	if (argc != 2)
@@ -29,7 +28,7 @@ char	*ft_initialize(int argc, char **argv)
 		ft_print_error("Invalid file format, file must have a .ber extension");
 		exit(0);
 	}
-	map_contents = ft_read_map_file(fd);
+	map_contents = ft_read_map_file(argv[1]);
 	return (map_contents);
 }
 
@@ -50,7 +49,6 @@ int	main(int argc, char **argv)
 		ft_free_void(&mlx_ptr);
 		return (SO_LONG_ERROR);
 	}
-	ft_printf("map_is_valid%d\n",ft_map_is_valid(argv[1]));
 	sleep(2);
 	ft_close(&mlx_ptr, &mlx_win);
 	return (0);

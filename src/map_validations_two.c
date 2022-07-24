@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 14:46:58 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:13:26 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ char	ft_map_is_valid_second(char *map_contents)
 	if (!ft_map_minimum_size(map_contents))
 	{
 		ft_print_error("The map is impossible to play as it's size is too small");
+		return (0);
+	}
+	if (!ft_only_one_starting_pos(map_contents))
+	{
+		ft_print_error("The map has multiple starting positions for the player");
 		return (0);
 	}
 	return (1);

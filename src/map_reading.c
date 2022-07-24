@@ -6,13 +6,13 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 15:44:12 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:27:14 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-size_t	*ft_get_map_length(char *map_name)
+size_t	ft_get_map_length(char *map_name)
 {
 	int		fd;
 	char	*line;
@@ -27,7 +27,6 @@ size_t	*ft_get_map_length(char *map_name)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	ft_printf("REMOVE THIS!!!! Length of map is %d characters\n", length);
 	return (length);
 }
 
@@ -54,6 +53,5 @@ char	*ft_read_map_file(char *map_name)
 		}
 		line = get_next_line(fd);
 	}
-	ft_printf("REMOVE  THIS!!!!\nMap contents:\n%s\n", map_contents);
 	return (map_contents);
 }

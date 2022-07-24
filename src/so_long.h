@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 15:30:55 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:05:29 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 /* utils.c */
 void	ft_free_void(void **ptr);
 void	ft_print_error(char *error_message);
+int		ft_open(char *file_name, int flags);
 
 /* map_utils.c */
 int		ft_get_map_width(char *map_contents);
@@ -53,7 +54,11 @@ char	ft_right_column_only_walls(char *map_contents);
 char	ft_surrounded_by_walls(char *map_contents);
 
 /* error_handling.c */
-char	ft_check_errors_main(char *map_contents);
+void	ft_check_errors_main(char *map_contents);
+
+/*map_reading.c */
+size_t	ft_get_map_length(char *map_name);
+char	*ft_read_map_file(char *map_name);
 
 /* mlx_utils.c */
 void	ft_close(void **mlx_ptr, void **mlx_win);
