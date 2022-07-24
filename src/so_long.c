@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 21:13:50 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 23:45:43 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int	main(int argc, char **argv)
 		return (SO_LONG_ERROR);
 	}
 	sleep(2);
-	ft_close(&mlx_ptr, &mlx_win);
+	ft_close(&mlx_ptr, &mlx_win, map_contents);
 	return (0);
 }

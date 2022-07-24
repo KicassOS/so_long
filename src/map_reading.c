@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_reading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 21:27:14 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 23:54:18 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ size_t	ft_get_map_length(char *map_name)
 	while (line)
 	{
 		length += ft_strlen(line);
+		ft_free_void((void *) &line);
 		line = get_next_line(fd);
 	}
+	ft_free_void((void *) &line);
 	close(fd);
 	return (length);
 }
@@ -51,7 +53,9 @@ char	*ft_read_map_file(char *map_name)
 			i++;
 			j++;
 		}
+		ft_free_void((void *) &line);
 		line = get_next_line(fd);
 	}
+	ft_free_void((void *) &line);
 	return (map_contents);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 16:05:29 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 23:46:06 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ size_t	ft_get_map_length(char *map_name);
 char	*ft_read_map_file(char *map_name);
 
 /* mlx_utils.c */
-void	ft_close(void **mlx_ptr, void **mlx_win);
+void	ft_close(void **mlx_ptr, void **mlx_win, char *map_contents);
 
 #endif
