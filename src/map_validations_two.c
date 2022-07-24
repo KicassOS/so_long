@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 13:50:28 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 14:46:58 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	ft_only_one_starting_pos(char *map_contents)
 	return (1);
 }
 
-char	ft_map_is_valid_second(char *map_name, char *map_contents)
+char	ft_map_is_valid_second(char *map_contents)
 {
 	if (!ft_surrounded_by_walls(map_contents))
 	{
@@ -45,13 +45,8 @@ char	ft_map_is_valid_second(char *map_name, char *map_contents)
 }
 
 /* returns 1 if the map is valid, 0 if it isn't */
-char	ft_map_is_valid(char *map_name, char *map_contents)
+char	ft_map_is_valid(char *map_contents)
 {
-	if (!ft_check_file_format(map_name))
-	{
-		ft_print_error("Invalid file format, file must have a .ber extension");
-		return (0);
-	}
 	if (!ft_check_nodes_present(map_contents))
 	{
 		ft_print_error("Not all nodes (1, C, E, P) are present");
@@ -67,7 +62,7 @@ char	ft_map_is_valid(char *map_name, char *map_contents)
 		ft_print_error("The map contains nodes other than 0, 1, C, E, P");
 		return (0);
 	}
-	if (!ft_map_is_valid_second(map_name, map_contents))
+	if (!ft_map_is_valid_second(map_contents))
 		return (0);
 	return (1);
 }

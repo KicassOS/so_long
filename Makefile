@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+         #
+#    By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 19:22:49 by pszleper          #+#    #+#              #
-#    Updated: 2022/07/16 16:58:12 by pszleper         ###   ########.fr        #
+#    Updated: 2022/07/24 14:44:41 by pszleper         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,10 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = so_long
 
-HEADER = so_long.h Libft/libft.h Libft/get_next_line/get_next_line.h \
+HEADER = src/so_long.h Libft/libft.h Libft/get_next_line/get_next_line.h \
 		 Libft/ft_printf/ft_printf.h
 
-SRC = so_long.c utils.c map_validations.c error_handling.c mlx_utils.c
+SRC = $(addprefix src/, so_long.c utils.c map_validations.c error_handling.c mlx_utils.c)
 
 OBJECTS = $(SRC:.c=.o)
 
@@ -34,11 +34,12 @@ $(NAME): libmlx_Linux.a libft.a $(OBJECTS)
 libmlx_Linux.a:
 	make -C mlx_linux
 	cp mlx_linux/libmlx_Linux.a .
-	cp mlx_linux/mlx.h .
+	cp mlx_linux/mlx.h ./src
 
 libft.a:
 	make -C Libft
-	cp Libft/libft.a .
+	cp Libft/libft.a ./src
+	cp Libft/libft.h ./src
 
 clean:
 	rm -f *.o

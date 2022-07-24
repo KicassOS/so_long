@@ -6,19 +6,21 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 04:55:58 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 14:47:15 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define MLX_ERROR -1
 # include <fcntl.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 # include "libft.h"
 # include "mlx.h"
 
+# define MLX_ERROR -1
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
 
@@ -39,8 +41,8 @@ char	ft_map_no_other_nodes(char *map_contents);
 char	ft_map_minimum_size(char *map_contents);
 
 /* map_validations_two.c */
-char	ft_map_is_valid(char *map_name, char *map_contents);
-char	ft_map_is_valid_second(char *map_name, char *map_contents);
+char	ft_map_is_valid(char *map_contents);
+char	ft_map_is_valid_second(char *map_contents);
 char	ft_only_one_starting_pos(char *map_contents);
 
 /* wall_checker.c */
@@ -51,7 +53,7 @@ char	ft_right_column_only_walls(char *map_contents);
 char	ft_surrounded_by_walls(char *map_contents);
 
 /* error_handling.c */
-char	ft_check_errors_main(int argc, char *map_name, char *map_contents);
+char	ft_check_errors_main(char *map_contents);
 
 /* mlx_utils.c */
 void	ft_close(void **mlx_ptr, void **mlx_win);
