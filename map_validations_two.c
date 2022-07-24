@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 03:21:28 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 13:50:28 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ char	ft_only_one_starting_pos(char *map_contents)
 
 char	ft_map_is_valid_second(char *map_name, char *map_contents)
 {
+	if (!ft_surrounded_by_walls(map_contents))
+	{
+		ft_print_error("The map is not surrounded by walls");
+		return (0);
+	}
 	if (!ft_map_minimum_size(map_contents))
 	{
 		ft_print_error("The map is impossible to play as it's size is too small");
@@ -49,7 +54,7 @@ char	ft_map_is_valid(char *map_name, char *map_contents)
 	}
 	if (!ft_check_nodes_present(map_contents))
 	{
-		ft_print_error("Not all nodes (0, 1, C, E, P) are present");
+		ft_print_error("Not all nodes (1, C, E, P) are present");
 		return (0);
 	}
 	if (!ft_map_is_rectangular(map_contents))

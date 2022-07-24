@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:31:28 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 05:16:13 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 13:46:46 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,27 +105,10 @@ char	ft_map_minimum_size(char *map_contents)
 {
 	int	width;
 	int	height;
-	int	line_has_char;
-
-	height = 0;
-	while (*map_contents)
-	{
-		width = 0;
-		if (*map_contents == '\n')
-		{
-			if (width < 3)
-				return (0);
-			height++;
-			line_has_char = 0;
-		}
-		if (map_contents != '\n')
-		{
-			line_has_char = 1;
-			width++;
-		}
-		map_contents++;
-	}
-	if (height < 3 && line_has_char == 0)
+	
+	width = ft_get_map_width(map_contents);
+	height = ft_get_map_height(map_contents);
+	if (width < 3 || height < 3)
 		return (0);
 	return (1);
 }
