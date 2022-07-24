@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 14:47:15 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 15:30:55 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "libft.h"
 # include "mlx.h"
 
-# define MLX_ERROR -1
+# define SO_LONG_ERROR -1
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
 
