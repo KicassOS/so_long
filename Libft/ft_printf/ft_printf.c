@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 12:24:44 by pszleper          #+#    #+#             */
-/*   Updated: 2022/01/24 20:13:38 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:20:04 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 void	ft_pick_printer_function(const char *str, int i, int *len, va_list args)
 {

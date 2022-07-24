@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:24:56 by pszleper          #+#    #+#             */
-/*   Updated: 2022/03/16 06:03:20 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:23:15 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../libft.h"
 
 // buffer is used to store the result of read
 // bytes_read is fed into strndup and strnjoin to prevent segfaults
@@ -62,7 +62,7 @@ char	*ft_output(char **line, int position, int bytes_read)
 	else
 		position++;
 	current_line = ft_strndup(*line, position);
-	if (position == ft_strlen(*line))
+	if (position == (int) ft_strlen(*line))
 		ft_free(line);
 	else
 		*line = ft_update_nl_pos(line, position);

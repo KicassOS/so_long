@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_converters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 18:44:48 by pszleper          #+#    #+#             */
-/*   Updated: 2022/01/24 20:13:29 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:19:51 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 int	ft_intlen(int n)
 {

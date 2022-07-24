@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+         #
+#    By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/24 04:40:22 by pszleper          #+#    #+#              #
-#    Updated: 2022/05/24 04:40:25 by pszleper         ###   ########.fr        #
+#    Updated: 2022/07/24 16:23:39 by pszleper         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,8 +42,7 @@ FT_PRINTF_SRC = $(addprefix $(FT_PRINTF_DIR), ft_converters.c 		\
 				ft_numconverters.c ft_printf.c ft_putpointer.c 	\
 				ft_strutil.c)
 
-HEADERS =	libft.h $(addprefix $(GNL_DIR), get_next_line.h) \
-			$(addprefix $(FT_PRINTF_DIR), ft_printf.h)
+HEADERS =	libft.h
 
 all: echo_compiling_libft $(NAME)
 

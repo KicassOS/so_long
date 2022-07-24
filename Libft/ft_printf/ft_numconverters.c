@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_numconverters.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 02:29:25 by pszleper          #+#    #+#             */
-/*   Updated: 2022/01/24 20:13:32 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:19:58 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 int	ft_putnbr(int n)
 {

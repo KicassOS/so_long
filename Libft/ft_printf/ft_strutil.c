@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strutil.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 19:35:23 by pszleper          #+#    #+#             */
-/*   Updated: 2022/01/24 20:13:36 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:20:19 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../libft.h"
 
 int	ft_putchar(char c)
 {
