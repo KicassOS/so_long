@@ -6,14 +6,13 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:31:31 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 16:06:43 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/25 10:52:25 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-/* returns 1 if the first line of the map only contains walls, 0 if not
-** the function assumes that the map is valid */
+/* returns 1 if the first line of the map only contains walls, 0 if not */
 char	ft_first_line_only_walls(char *map_contents)
 {
 	while (*map_contents)
@@ -27,8 +26,7 @@ char	ft_first_line_only_walls(char *map_contents)
 	return (1);
 }
 
-/* returns 1 if the last line of the map only contains walls, 0 if not
-** the function assumes that the map is valid */
+/* returns 1 if the last line of the map only contains walls, 0 if not */
 char	ft_last_line_only_walls(char *map_contents)
 {
 	int	i;
@@ -47,8 +45,7 @@ char	ft_last_line_only_walls(char *map_contents)
 	return (1);
 }
 
-/* returns 1 if the leftmost column of the map contains only walls, 0 if not
-** the function assumes that the map is valid */
+/* returns 1 if the leftmost column of the map contains only walls, 0 if not */
 char	ft_left_column_only_walls(char *map_contents)
 {
 	int	i;
@@ -67,8 +64,7 @@ char	ft_left_column_only_walls(char *map_contents)
 	return (1);
 }
 
-/* returns 1 if the rightmost column of the map contains only walls, 0 if not
-** the function assumes that the map is valid */
+/* returns 1 if the rightmost column of the map contains only walls, 0 if not */
 char	ft_right_column_only_walls(char *map_contents)
 {
 	int	i;

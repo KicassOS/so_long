@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   map_reading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 23:54:18 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/25 10:48:04 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+/* returns the map file's length as a size_t, this is used to allocate the
+** right number of bytes for the map_contents in ft_read_map_file */
 size_t	ft_get_map_length(char *map_name)
 {
 	int		fd;
@@ -32,6 +34,9 @@ size_t	ft_get_map_length(char *map_name)
 	return (length);
 }
 
+/* opens the map file and allocates the memory for map_contents
+** then, it reads the map using get_next_line and fills the allocated
+** memory with the map's contents which it returns */
 char	*ft_read_map_file(char *map_name)
 {
 	char	*map_contents;

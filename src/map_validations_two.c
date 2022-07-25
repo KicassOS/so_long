@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 21:13:26 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/25 10:41:54 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	ft_only_one_starting_pos(char *map_contents)
 	return (1);
 }
 
+/* second part of the map_validation process, returns 1 if the map is valid
+** and 0 if it isn't */
 char	ft_map_is_valid_second(char *map_contents)
 {
 	if (!ft_surrounded_by_walls(map_contents))
