@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 23:46:06 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:23:42 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 # define SO_LONG_ERROR -1
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
+
+typedef struct s_program {
+	void	*mlx;
+	void	*window;
+	char	*map_contents;
+}	t_program;
 
 /* utils.c */
 void	ft_free_void(void **ptr);
@@ -61,6 +67,10 @@ size_t	ft_get_map_length(char *map_name);
 char	*ft_read_map_file(char *map_name);
 
 /* mlx_utils.c */
-void	ft_close(void **mlx_ptr, void **mlx_win, char *map_contents);
+void	ft_close(t_program *program);
+int		ft_esc_close(void *param);
+
+/* mlx_events.c */
+int		ft_handle_no_event(void	*param);
 
 #endif

@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
+/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 23:45:43 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/07/31 13:50:23 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_bind_events(t_program *program)
+{
+	mlx_hook(program->window, 17, 0, &ft_esc_close, &program);
+}
 
 /* checks if argc == 2, and the map file format; then opens the map file and 
 ** inputs its' contents into map_contents which it returns */
@@ -34,22 +39,24 @@ char	*ft_initialize(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
-	char	*map_contents;
+	t_program program;
 
-	map_contents = ft_initialize(argc, argv);
-	ft_check_errors_main(map_contents);
-	mlx_ptr = mlx_init();
-	if (mlx_ptr == NULL)
+	program.map_contents = ft_initialize(argc, argv);
+	ft_check_errors_main(program.map_contents);
+	program.mlx = mlx_init();
+	if (program.mlx == NULL)
 		return (SO_LONG_ERROR);
-	mlx_win = mlx_new_window(mlx_ptr, WINDOW_WIDTH, WINDOW_HEIGHT, "So_long");
-	if (mlx_win == NULL)
+	program.window = mlx_new_window(program.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "So_long");
+	if (program.window == NULL)
 	{
-		ft_free_void(&mlx_ptr);
+		ft_free_void(&program.mlx);
 		return (SO_LONG_ERROR);
 	}
-	sleep(2);
-	ft_close(&mlx_ptr, &mlx_win, map_contents);
+	ft_bind_events(&program);
+	mlx_loop_hook(&program.mlx, &ft_handle_no_event, &program);
+	mlx_loop(program.mlx);
+	mlx_destroy_display(program.mlx);
+	ft_free_void(program.mlx);
+	ft_free_void((void *) program.map_contents);
 	return (0);
 }
