@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:24:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 16:21:54 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/08/16 20:25:23 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,10 @@ int	ft_strchr_flag(char *s, int c, int flag)
 }
 
 // frees memory and sets pointer address to NULL to prevent potential segfaults
-void	ft_free(char **p)
+void	ft_free(void **p)
 {
-	if (p && *p)
-	{
-		free(*p);
-		*p = NULL;
-	}
+	free(*p);
+	*p = NULL;
 }
 
 // same as libft, but only copies n chars to prevent segfaults
@@ -69,6 +66,6 @@ char	*ft_strnjoin(char *s1, char *s2, int n)
 		output[i++] = s2[j++];
 	output[i] = '\0';
 	if (s1)
-		ft_free(&s1);
+		ft_free((void **)&s1);
 	return (output);
 }

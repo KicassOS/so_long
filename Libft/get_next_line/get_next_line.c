@@ -6,7 +6,7 @@
 /*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:24:56 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 16:23:15 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/08/16 20:24:10 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ char	*get_next_line(int fd)
 			break ;
 		line = ft_strnjoin(line, buffer, bytes_read);
 		position = ft_strchr_flag(line, '\n', 1);
-		ft_free(&buffer);
+		ft_free((void **)&buffer);
 	}
-	ft_free(&buffer);
+	ft_free((void **)&buffer);
 	return (ft_output(&line, position, bytes_read));
 }
 
@@ -63,7 +63,7 @@ char	*ft_output(char **line, int position, int bytes_read)
 		position++;
 	current_line = ft_strndup(*line, position);
 	if (position == (int) ft_strlen(*line))
-		ft_free(line);
+		ft_free((void **)line);
 	else
 		*line = ft_update_nl_pos(line, position);
 	return (current_line);
@@ -77,7 +77,7 @@ char	*ft_update_nl_pos(char **line, int position)
 
 	len = ft_strlen(*line) - position;
 	tmp = ft_strndup(*line + position, len);
-	ft_free(line);
+	ft_free((void **)line);
 	*line = tmp;
 	return (*line);
 }
