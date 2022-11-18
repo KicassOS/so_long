@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:36:59 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/17 04:07:04 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 /* returns the map width as an int, assuming that the map is valid
 ** it only scans the first line */

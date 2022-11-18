@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 22:32:41 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/25 10:51:33 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 /* frees the allocated memory at ptr, and sets it to NULL to prevent segfaults
 ** caused by any further accidental access of the memory stored at ptr */
@@ -36,7 +36,7 @@ int	ft_open(char *file_name, int flags)
 	fd = open(file_name, flags);
 	if (fd == -1)
 	{
-		perror("Error\nFile could not be opened\n");
+		ft_printf("Error\nFile could not be opened\n");
 		exit(SO_LONG_ERROR);
 	}
 	return (fd);

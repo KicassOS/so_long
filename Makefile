@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+         #
+#    By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 19:22:49 by pszleper          #+#    #+#              #
-#    Updated: 2022/07/31 13:47:41 by pszleper         ###   ########.fr        #
+#    Updated: 2022/11/18 06:04:56 by pszleper         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = so_long
 
-HEADER = src/so_long.h Libft/libft.h
+HEADER = include/so_long.h Libft/libft.h
 
 SRC = $(addprefix src/, so_long.c utils.c map_validations.c error_handling.c \
 	map_validations_two.c map_reading.c map_utils.c mlx_utils.c wall_checker.c \
@@ -44,7 +44,7 @@ libmlx_Linux.a:
 libft.a:
 	make -C Libft
 	cp Libft/libft.a ./src
-	cp Libft/libft.h ./src
+	cp Libft/libft.h ./include
 	mv Libft/libft.a .
 
 clean:

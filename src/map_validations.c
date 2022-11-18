@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_validations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:31:28 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 13:46:46 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 /* returns 1 if the file ends with .ber, 0 if not */
 char	ft_check_file_format(char *map_name)

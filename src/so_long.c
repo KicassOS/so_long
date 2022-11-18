@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/31 13:50:23 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	ft_bind_events(t_program *program)
 {
@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 	t_program program;
 
 	program.map_contents = ft_initialize(argc, argv);
+	program.image_size = IMAGE_SIZE;
 	ft_check_errors_main(program.map_contents);
 	program.mlx = mlx_init();
 	if (program.mlx == NULL)
@@ -54,7 +55,10 @@ int	main(int argc, char **argv)
 	}
 	ft_bind_events(&program);
 	mlx_loop_hook(&program.mlx, &ft_handle_no_event, &program);
+	void *rambo = mlx_xpm_file_to_image(program.mlx, "./assets/images/player.xpm", (int *) &program.image_size, (int *) &program.image_size);
+	mlx_put_image_to_window(program.mlx, program.window, rambo, 0, 0);
 	mlx_loop(program.mlx);
+	ft_free_everything(&program);
 	mlx_destroy_display(program.mlx);
 	ft_free_void(program.mlx);
 	ft_free_void((void *) program.map_contents);

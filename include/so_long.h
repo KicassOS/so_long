@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/31 13:23:42 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:49:37 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include "libft.h"
 # include "mlx.h"
 
-# define SO_LONG_ERROR -1
+# define SO_LONG_ERROR 42
+# define IMAGE_SIZE 42
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
 
@@ -28,6 +29,14 @@ typedef struct s_program {
 	void	*mlx;
 	void	*window;
 	char	*map_contents;
+	char	*map;
+	int		image_size;
+	void	*wall_image;
+	void	*player_image;
+	void	*key_image;
+	void	*closed_door_image;
+	void	*open_door_image;
+	void	*floor_image;
 }	t_program;
 
 /* utils.c */
@@ -72,5 +81,8 @@ int		ft_esc_close(void *param);
 
 /* mlx_events.c */
 int		ft_handle_no_event(void	*param);
+
+/* free_program.c */
+void	ft_free_everything(t_program *program);
 
 #endif

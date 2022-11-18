@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_validations_two.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/25 10:41:54 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 /* returns 1 if there's only one P node in the map, 0 if not */
 char	ft_only_one_starting_pos(char *map_contents)

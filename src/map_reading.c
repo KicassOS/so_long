@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_reading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/25 10:48:04 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:53:02 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 /* returns the map file's length as a size_t, this is used to allocate the
 ** right number of bytes for the map_contents in ft_read_map_file */
