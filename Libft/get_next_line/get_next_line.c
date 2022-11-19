@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:24:56 by pszleper          #+#    #+#             */
-/*   Updated: 2022/08/16 20:24:10 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:30:27 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer = NULL;
 	position = ft_strchr_flag(line, '\n', 0);
+	bytes_read = 0;
 	while (position == -1 && position != -2)
 	{
 		buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
