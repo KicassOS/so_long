@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/18 17:49:37 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/19 05:22:20 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 # include <stdio.h>
 # include "libft.h"
 # include "mlx.h"
+# include <X11/keysymdef.h>
+# include <X11/X.h>
 
-# define SO_LONG_ERROR 42
 # define IMAGE_SIZE 42
+# define SO_LONG_ERROR 42
 # define WINDOW_WIDTH 800
 # define WINDOW_HEIGHT 600
 
@@ -29,13 +31,16 @@ typedef struct s_program {
 	void	*mlx;
 	void	*window;
 	char	*map_contents;
-	char	*map;
-	int		image_size;
+	char	**map;
+	int		m_h;
+	int		m_w;
+	int		i_s;
+	int		movements;
+	int		coins;
 	void	*wall_image;
 	void	*player_image;
 	void	*key_image;
-	void	*closed_door_image;
-	void	*open_door_image;
+	void	*door_image;
 	void	*floor_image;
 }	t_program;
 
@@ -73,16 +78,21 @@ void	ft_check_errors_main(char *map_contents);
 
 /*map_reading.c */
 size_t	ft_get_map_length(char *map_name);
-char	*ft_read_map_file(char *map_name);
+char	*ft_read_map_file(t_program *program, char *map_name);
+char	**ft_load_game_map(t_program *p, char *map_contents);
 
 /* mlx_utils.c */
 void	ft_close(t_program *program);
 int		ft_esc_close(void *param);
+void	ft_create_images(t_program *p);
 
 /* mlx_events.c */
 int		ft_handle_no_event(void	*param);
 
 /* free_program.c */
 void	ft_free_everything(t_program *program);
+void	ft_destroy_images(t_program *program);
+void	ft_free_program(t_program *program);
+void	ft_free_map(t_program *program, char **map);
 
 #endif

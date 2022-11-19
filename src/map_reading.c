@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/18 17:53:02 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/19 00:45:40 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,24 @@ size_t	ft_get_map_length(char *map_name)
 	return (length);
 }
 
+char	*ft_alloc_map_contents(t_program *program, char *map_name)
+{
+	char	*map_contents;
+
+	map_contents = ft_calloc(ft_get_map_length(map_name) + 1, sizeof(char));
+	if (map_contents == NULL)
+	{
+		ft_print_error("Could not allocate memory for map_contents");
+		ft_free_program(program);
+		exit(SO_LONG_ERROR);
+	}
+	return (map_contents);
+}
+
 /* opens the map file and allocates the memory for map_contents
 ** then, it reads the map using get_next_line and fills the allocated
 ** memory with the map's contents which it returns */
-char	*ft_read_map_file(char *map_name)
+char	*ft_read_map_file(t_program *program, char *map_name)
 {
 	char	*map_contents;
 	int		fd;
@@ -45,7 +59,7 @@ char	*ft_read_map_file(char *map_name)
 	int		j;
 	char	*line;
 
-	map_contents = ft_calloc(ft_get_map_length(map_name) + 1, 1);
+	map_contents = ft_alloc_map_contents(program, map_name);
 	fd = ft_open(map_name, O_RDONLY);
 	line = get_next_line(fd);
 	i = 0;
@@ -63,4 +77,17 @@ char	*ft_read_map_file(char *map_name)
 	}
 	ft_free_void((void *) &line);
 	return (map_contents);
+}
+
+char	**ft_load_game_map(t_program *p, char *map_contents)
+{
+	char **map;
+
+	map = malloc(sizeof(char) * ft_strlen(map_contents) + 1);
+	if (map == NULL)
+	{
+		ft_print_error("Could not allocate memory for map");
+		ft_free_program(p);
+	}
+	return (map);
 }
