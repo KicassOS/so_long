@@ -6,7 +6,7 @@
 #    By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 19:22:49 by pszleper          #+#    #+#              #
-#    Updated: 2022/11/19 05:36:30 by pszleper         ###   ########.fr        #
+#    Updated: 2022/11/20 19:09:14 by pszleper         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ HEADER = include/so_long.h Libft/libft.h
 
 SRC = $(addprefix src/, so_long.c utils.c map_validations.c error_handling.c \
 	map_validations_two.c map_reading.c map_utils.c mlx_utils.c wall_checker.c \
-	mlx_events.c free_game.c)
+	mlx_events.c free_game.c map_loading.c)
 
 OBJECTS = $(addprefix objects/, so_long.o utils.o map_validations.o error_handling.o \
 	map_validations_two.o map_reading.o map_utils.o mlx_utils.o wall_checker.o \
-	mlx_events.o free_game.o)
+	mlx_events.o free_game.o map_loading.o)
 
 all: libmlx_Linux.a libft.a $(NAME)
 

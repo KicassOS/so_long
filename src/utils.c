@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 22:32:41 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/19 07:07:47 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_print_error(char *error_message)
 
 /* opens the file file_name with specified flags, handles potential errors
 ** and prints an appropriate error message */
-int	ft_open(char *file_name, int flags)
+int	ft_open(char *file_name, int flags,t_program *p)
 {
 	int	fd;
 
@@ -37,7 +37,7 @@ int	ft_open(char *file_name, int flags)
 	if (fd == -1)
 	{
 		ft_printf("Error\nFile could not be opened\n");
-		exit(SO_LONG_ERROR);
+		ft_close(p, SO_LONG_ERROR);
 	}
 	return (fd);
 }

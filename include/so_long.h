@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 05:22:20 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/19 16:59:14 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 
 # define IMAGE_SIZE 42
 # define SO_LONG_ERROR 42
-# define WINDOW_WIDTH 800
-# define WINDOW_HEIGHT 600
 
 typedef struct s_program {
 	void	*mlx;
@@ -42,12 +40,21 @@ typedef struct s_program {
 	void	*key_image;
 	void	*door_image;
 	void	*floor_image;
+	char	map_alloc;
+	char	map_contents_alloc;
+	char	wall_alloc;
+	char	player_alloc;
+	char	key_alloc;
+	char	door_alloc;
+	char	floor_alloc;
+	char	mlx_alloc;
+	char	win_created;
 }	t_program;
 
 /* utils.c */
 void	ft_free_void(void **ptr);
 void	ft_print_error(char *error_message);
-int		ft_open(char *file_name, int flags);
+int		ft_open(char *file_name, int flags, t_program *p);
 
 /* map_utils.c */
 int		ft_get_map_width(char *map_contents);
@@ -77,22 +84,21 @@ char	ft_surrounded_by_walls(char *map_contents);
 void	ft_check_errors_main(char *map_contents);
 
 /*map_reading.c */
-size_t	ft_get_map_length(char *map_name);
+size_t	ft_get_map_length(char *map_name, t_program *p);
 char	*ft_read_map_file(t_program *program, char *map_name);
 char	**ft_load_game_map(t_program *p, char *map_contents);
 
 /* mlx_utils.c */
-void	ft_close(t_program *program);
-int		ft_esc_close(void *param);
+void	ft_close(t_program *program, char exit_code);
 void	ft_create_images(t_program *p);
+void	ft_init_mlx(t_program *p);
 
 /* mlx_events.c */
 int		ft_handle_no_event(void	*param);
 
 /* free_program.c */
-void	ft_free_everything(t_program *program);
 void	ft_destroy_images(t_program *program);
 void	ft_free_program(t_program *program);
-void	ft_free_map(t_program *program, char **map);
+void	ft_free_map(t_program *program);
 
 #endif

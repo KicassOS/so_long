@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 00:45:40 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:00:16 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 /* returns the map file's length as a size_t, this is used to allocate the
 ** right number of bytes for the map_contents in ft_read_map_file */
-size_t	ft_get_map_length(char *map_name)
+size_t	ft_get_map_length(char *map_name, t_program *p)
 {
 	int		fd;
 	char	*line;
 	size_t	length;
 
 	length = 0;
-	fd = ft_open(map_name, O_RDONLY);
+	fd = ft_open(map_name, O_RDONLY, p);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -38,12 +38,11 @@ char	*ft_alloc_map_contents(t_program *program, char *map_name)
 {
 	char	*map_contents;
 
-	map_contents = ft_calloc(ft_get_map_length(map_name) + 1, sizeof(char));
+	map_contents = ft_calloc(ft_get_map_length(map_name, program) + 1, sizeof(char));
 	if (map_contents == NULL)
 	{
 		ft_print_error("Could not allocate memory for map_contents");
-		ft_free_program(program);
-		exit(SO_LONG_ERROR);
+		ft_close(program, SO_LONG_ERROR);
 	}
 	return (map_contents);
 }
@@ -60,7 +59,7 @@ char	*ft_read_map_file(t_program *program, char *map_name)
 	char	*line;
 
 	map_contents = ft_alloc_map_contents(program, map_name);
-	fd = ft_open(map_name, O_RDONLY);
+	fd = ft_open(map_name, O_RDONLY, program);
 	line = get_next_line(fd);
 	i = 0;
 	while (line)
@@ -77,17 +76,4 @@ char	*ft_read_map_file(t_program *program, char *map_name)
 	}
 	ft_free_void((void *) &line);
 	return (map_contents);
-}
-
-char	**ft_load_game_map(t_program *p, char *map_contents)
-{
-	char **map;
-
-	map = malloc(sizeof(char) * ft_strlen(map_contents) + 1);
-	if (map == NULL)
-	{
-		ft_print_error("Could not allocate memory for map");
-		ft_free_program(p);
-	}
-	return (map);
 }
