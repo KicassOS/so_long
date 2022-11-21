@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 16:59:14 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 05:26:28 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,13 @@ typedef struct s_program {
 void	ft_free_void(void **ptr);
 void	ft_print_error(char *error_message);
 int		ft_open(char *file_name, int flags, t_program *p);
+void	ft_print_movements(t_program *program);
 
 /* map_utils.c */
 int		ft_get_map_width(char *map_contents);
 int		ft_get_map_height(char *map_contents);
 char	ft_is_map_node(char c);
+int		ft_count_coins(t_program *program);
 
 /* map_validations.c */
 char	ft_check_file_format(char *map_name);
@@ -100,5 +102,11 @@ int		ft_handle_no_event(void	*param);
 void	ft_destroy_images(t_program *program);
 void	ft_free_program(t_program *program);
 void	ft_free_map(t_program *program);
+int		ft_close_hook(t_program *program);
+
+/* map_rendering.c */
+int		ft_render_map(t_program *program);
+void	ft_check_tile(t_program *p, int x, int y);
+void	ft_draw_sprite(t_program *program, void *img, int x, int y);
 
 #endif

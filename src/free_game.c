@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 06:03:01 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/20 19:10:33 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 04:58:38 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,11 @@ void	ft_free_program(t_program *program)
 		mlx_destroy_display(program->mlx);
 	if (program->mlx_alloc == 1)
 		free(program->mlx);
+}
+
+int	ft_close_hook(t_program *program)
+{
+	ft_printf("Movements: %d\n", program->movements);
+	ft_close(program, EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }

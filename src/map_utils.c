@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:36:59 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 05:45:23 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,20 @@ char	ft_is_map_node(char c)
 	if (c == '0' || c == '1' || c == 'C' || c == 'E' || c == 'P')
 		return (1);
 	return (0);
+}
+
+int	ft_count_coins(t_program *p)
+{
+	int	coin_count;
+	int	i;
+
+	coin_count = 0;
+	i = 0;
+	while (p->map_contents[i])
+	{
+		if (p->map_contents[i] == 'C')
+			coin_count++;
+		i++;
+	}
+	return (coin_count);
 }

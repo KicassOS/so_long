@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 16:04:58 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 17:43:30 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 04:59:35 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,25 +66,5 @@ char	**ft_load_game_map(t_program *p, char *map_contents)
 		i++;
 	}
 	p->map_alloc = 1;
-	//printing map for testing
-	int j = 0;
-	int k = 0;
-	printf("Printing map:\n");
-	while (j < p->m_h)
-	{
-		k = 0;
-		while (k <= p->m_w)
-		{
-			if (k == p->m_w)
-			{
-				printf("\n");
-				break ;
-			}
-			printf("%c", map[k][j]);
-			k++;
-		}
-		j++;
-	}
-	printf("Map printing done.");
 	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 17:02:30 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 05:41:04 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,8 @@ char	*ft_check_errors(int argc, char **argv, t_program *program)
 	program->map_contents_alloc = 1;
 	if (!ft_map_is_valid(map_contents))
 	{
-		ft_free_program(program);
 		ft_printf("Map is not valid\n");
-		exit(SO_LONG_ERROR);
+		ft_close(program, SO_LONG_ERROR);
 	}
 	return (map_contents);
 }
@@ -55,7 +54,7 @@ void	ft_init_program(int argc, char **argv, t_program *p)
 	ft_init_mlx(p);
 	ft_create_images(p);
 	p->i_s = IMAGE_SIZE;
-	p->coins = 0;
+	p->coins = ft_count_coins(p);
 	p->movements = 0;
 }
 
@@ -64,12 +63,12 @@ int	main(int argc, char **argv)
 	t_program program;
 
 	ft_init_program(argc, argv, &program);
-	/* mlx_loop(program.mlx);
-	mlx_hook(program.window, KeyPress, KeyPressMask, ft_handle_input, (void *) &program);
+	ft_render_map(&program);
+	// mlx_hook(program.window, KeyPress, KeyPressMask, ft_handle_input, (void *) &program);
 	mlx_hook(program.window, \
-	DestroyNotify, ButtonPressMask, ft_close_game, (void *) &program);
-	mlx_hook(program.window, Expose, ExposureMask, ft_render_map, (void *) &program);
+	DestroyNotify, ButtonPressMask, ft_close_hook, (void *) &program);
+	// mlx_hook(program.window, Expose, ExposureMask, ft_render_map, (void *) &program);
 	mlx_loop(program.mlx);
-	ft_free_program(&program); */
+	ft_close(&program, EXIT_SUCCESS);
 	return (0);
 }

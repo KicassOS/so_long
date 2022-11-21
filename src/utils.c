@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 22:32:41 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 07:07:47 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 05:45:44 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,17 @@ int	ft_open(char *file_name, int flags,t_program *p)
 		ft_close(p, SO_LONG_ERROR);
 	}
 	return (fd);
+}
+
+void	ft_print_movements(t_program *program)
+{
+	char	*movements;
+	char	*sentence;
+
+	movements = ft_itoa(program->movements);
+	sentence = ft_strjoin("Movements: ", movements);
+	ft_printf("%s\n", sentence);
+	mlx_string_put(program->mlx, program->window, 45, 38, 0, sentence);
+	free(movements);
+	free(sentence);
 }
