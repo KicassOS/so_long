@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 17:58:46 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:43:39 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,24 @@ void	ft_init_program(int argc, char **argv, t_program *p)
 	ft_find_player(p);
 }
 
+void	ft_render_map_no_print(t_program *p)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < p->m_w)
+	{
+		y = 0;
+		while (y < p->m_h)
+		{
+			ft_check_tile(p, x, y);
+			y++;
+		}
+		x++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_program	*program;
@@ -73,7 +91,7 @@ int	main(int argc, char **argv)
 		exit(SO_LONG_ERROR);
 	}
 	ft_init_program(argc, argv, program);
-	ft_render_map(program);
+	ft_render_map_no_print(program);
 	mlx_hook(program->window, KeyPress, KeyPressMask, \
 	ft_handle_input, (void *) program);
 	mlx_hook(program->window, \
