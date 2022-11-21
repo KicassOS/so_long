@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:12:46 by pszleper          #+#    #+#             */
-/*   Updated: 2022/08/22 01:17:53 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:49:23 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,15 +86,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #  define BUFFER_SIZE 42
 # endif
 
-char	*get_next_line(int fd);
-char	*ft_update_nl_pos(char **line, int position);
-char	*ft_output(char **line, int position, int bytes_read);
-char	*ft_strndup(char *input, int n);
+char	*get_next_line(int fd, void *program);
+char	*ft_update_nl_pos(char **line, int position, void *program);
+char	*ft_output(char **line, int position, int bytes_read, void *program);
+char	*ft_strndup(char *input, int n, void *program);
+char	*ft_handle_alloc_error(void *program);
 
 /* get_next_line_utils.c */
 int		ft_strchr_flag(char *s, int c, int flag);
 void	ft_free(void **p);
-char	*ft_strnjoin(char *s1, char *s2, int n);
+char	*ft_strnjoin(char *s1, char *s2, int n, void *program);
 
 /* ft_printf.c */
 int		ft_printf(const char *format, ...);

@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 18:00:17 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:53:50 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ size_t	ft_get_map_length(char *map_name, t_program *p)
 
 	length = 0;
 	fd = ft_open(map_name, O_RDONLY, p);
-	line = get_next_line(fd);
+	line = get_next_line(fd, p);
 	while (line)
 	{
 		length += ft_strlen(line);
 		ft_free_void((void *) &line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, p);
 	}
 	ft_free_void((void *) &line);
 	close(fd);
@@ -60,7 +60,7 @@ char	*ft_read_map_file(t_program *program, char *map_name)
 
 	map_contents = ft_alloc_map_contents(program, map_name);
 	fd = ft_open(map_name, O_RDONLY, program);
-	line = get_next_line(fd);
+	line = get_next_line(fd, program);
 	i = 0;
 	while (line)
 	{
@@ -72,7 +72,7 @@ char	*ft_read_map_file(t_program *program, char *map_name)
 			j++;
 		}
 		ft_free_void((void *) &line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, program);
 	}
 	ft_free_void((void *) &line);
 	return (map_contents);

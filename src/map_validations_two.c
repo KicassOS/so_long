@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 18:03:34 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:13:35 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	ft_map_is_valid_second(char *map_contents, t_program *p)
 /* returns 1 if the map is valid, 0 if it isn't */
 char	ft_map_is_valid(char *map_contents, t_program *p)
 {
-	if (!ft_check_nodes_present(map_contents))
+	if (!ft_check_nodes_present(p, map_contents))
 	{
 		free(map_contents);
 		ft_print_error("Not all nodes (1, C, E, P) are present");

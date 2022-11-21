@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 22:32:41 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 17:57:39 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 19:16:46 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,17 @@ void	ft_print_movements(t_program *program)
 	mlx_string_put(program->mlx, program->window, 45, 38, 0, sentence);
 	free(movements);
 	free(sentence);
+}
+
+char	*ft_create_required(t_program *program)
+{
+	char	*required;
+
+	required = ft_strdup("01CEP");
+	if (required == NULL)
+	{
+		ft_print_error("Could not allocate memory for ft_check_nodes");
+		ft_close(program, SO_LONG_ERROR);
+	}
+	return (required);
 }

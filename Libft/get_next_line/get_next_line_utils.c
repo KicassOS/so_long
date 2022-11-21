@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:24:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/08/16 20:25:23 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:14:21 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../include/so_long.h"
 #include "../libft.h"
 
 // finds char c in s, returning its' position
@@ -41,7 +42,7 @@ void	ft_free(void **p)
 
 // same as libft, but only copies n chars to prevent segfaults
 // used to append the newly read content to the line that has to be returned
-char	*ft_strnjoin(char *s1, char *s2, int n)
+char	*ft_strnjoin(char *s1, char *s2, int n, void *program)
 {
 	char	*output;
 	int		i;
@@ -53,7 +54,7 @@ char	*ft_strnjoin(char *s1, char *s2, int n)
 		return (NULL);
 	output = malloc(ft_strlen(s1) + n + 1);
 	if (!output)
-		return (NULL);
+		return (ft_handle_alloc_error(program));
 	if (s1)
 	{
 		while (s1[i])

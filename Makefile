@@ -6,7 +6,7 @@
 #    By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 19:22:49 by pszleper          #+#    #+#              #
-#    Updated: 2022/11/21 07:05:46 by pszleper         ###   ########.fr        #
+#    Updated: 2022/11/21 19:17:45 by pszleper         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = so_long
 
-HEADER = include/so_long.h Libft/libft.h
+HEADER = ./include/so_long.h ./include/libft.h
 
 SRC = $(addprefix src/, so_long.c utils.c map_validations.c \
 	map_validations_two.c map_reading.c map_utils.c mlx_utils.c wall_checker.c \
@@ -39,21 +39,20 @@ objects/%.o: src/%.c
 libmlx_Linux.a:
 	make -C mlx_linux
 	cp mlx_linux/libmlx_Linux.a .
-	cp mlx_linux/mlx.h ./src
 
 libft.a:
 	make -C Libft
-	cp Libft/libft.a ./src
-	cp Libft/libft.h ./include
 	mv Libft/libft.a .
 
 clean:
-	rm -f *.o
-	rm -f objects/*.o
-	make -C Libft fclean
+	rm -f */*.o
+	make -C Libft clean
+	rm -f */*.h.gch
 
 fclean: clean
+	make -C Libft fclean
 	rm -f $(NAME)
 	rm -f libft.a
+	rm -f src/libft.a
 
 re: fclean all
