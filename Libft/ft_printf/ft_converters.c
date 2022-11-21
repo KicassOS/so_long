@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_converters.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pszleper <pszleper@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 18:44:48 by pszleper          #+#    #+#             */
-/*   Updated: 2022/07/24 16:19:51 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 05:24:26 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-
-int	ft_intlen(int n)
-{
-	int	length_nb;
-	int	divider;
-
-	if (n == 0)
-		return (1);
-	length_nb = 10;
-	divider = 1000000000;
-	if (n < 0)
-		length_nb++;
-	while (n / divider == 0 && length_nb > 0)
-	{
-		length_nb--;
-		divider /= 10;
-	}
-	return (length_nb);
-}
 
 int	ft_puthex_upper(unsigned int to_convert)
 {
