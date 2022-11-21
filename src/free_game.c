@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 06:03:01 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 07:17:49 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 08:39:55 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,25 +49,26 @@ void	ft_free_program(t_program *program)
 	if (program->map_alloc == 1)
 		ft_free_map(program);
 	if (program->win_created == 1)
-		mlx_destroy_display(program->mlx);
-	if (program->mlx_alloc == 1)
 	{
-		free(program->mlx);
-		program->mlx = NULL;
+		mlx_destroy_window(program->mlx, program->window);
+		mlx_destroy_display(program->mlx);
 	}
+	if (program->mlx_alloc == 1)
+		free(program->mlx);
 	if (program->playpos_alloc == 1)
 		free(program->player_pos);
 }
 
 int	ft_close_hook(t_program *program)
 {
-	ft_printf("Movements: %d\n", program->movements);
 	ft_close(program, EXIT_SUCCESS);
 	return (EXIT_SUCCESS);
 }
 
 void	ft_victory(t_program *program)
 {
+	program->movements++;
+	ft_print_movements(program);
 	ft_printf("~~~~~ YOU WIN!!! ~~~~~\n");
 	ft_close(program, EXIT_SUCCESS);
 }

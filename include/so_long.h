@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 07:03:05 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 09:00:20 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,14 @@
 # define A_KEY 97
 # define S_KEY 115
 # define D_KEY 100
+
+# define Q_KEY 113
 # define ESC_KEY 65307
+
+# define UP_ARROW 65362
+# define LEFT_ARROW 65361
+# define DOWN_ARROW 65364
+# define RIGHT_ARROW 65363
 
 typedef struct s_position
 {
@@ -84,8 +91,8 @@ char	ft_map_no_other_nodes(char *map_contents);
 char	ft_map_minimum_size(char *map_contents);
 
 /* map_validations_two.c */
-char	ft_map_is_valid(char *map_contents);
-char	ft_map_is_valid_second(char *map_contents);
+char	ft_map_is_valid(char *map_contents, t_program *program);
+char	ft_map_is_valid_second(char *map_contents, t_program *program);
 char	ft_only_one_starting_pos(char *map_contents);
 
 /* wall_checker.c */

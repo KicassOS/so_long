@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 16:04:58 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 07:09:05 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 08:16:10 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ char	**ft_load_game_map(t_program *p, char *map_contents)
 	map = malloc(sizeof(char *) * (p->m_w));
 	if (map == NULL)
 	{
-		// ft_print_error("Could not allocate memory for map");
-		// ft_close(p, SO_LONG_ERROR);
+		ft_printf("Error\nCould not allocate memory for map\n");
+		ft_close(p, SO_LONG_ERROR);
 	}
 	while (i < p->m_w)
 	{
 		map[i] = malloc(sizeof(char) * (p->m_h));
 		if (map[i] == NULL)
 		{
-			ft_print_error("Memory for map could not be allocated");
+			ft_printf("Error\nMemory for map could not be allocated\n");
 			if (i > 0)
 				ft_free_incomplete_map(map, --i);
 			ft_close(p, SO_LONG_ERROR);

@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 06:06:59 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 07:04:59 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 08:59:00 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	ft_handle_input(int	key, t_program *p)
 {
-	if (key == W_KEY)
+	if (key == W_KEY || key == UP_ARROW)
 		ft_move(p, p->player_pos->x, p->player_pos->y - 1);
-	else if (key == A_KEY)
+	else if (key == A_KEY || key == LEFT_ARROW)
 		ft_move(p, p->player_pos->x -1, p->player_pos->y);
-	else if (key == S_KEY)
+	else if (key == S_KEY || key == DOWN_ARROW)
 		ft_move(p, p->player_pos->x, p->player_pos->y + 1);
-	else if (key == D_KEY)
+	else if (key == D_KEY || key == RIGHT_ARROW)
 		ft_move(p, p->player_pos->x + 1, p->player_pos->y);
-	else if (key == ESC_KEY)
+	else if (key == ESC_KEY || key == Q_KEY)
 		ft_close(p, EXIT_FAILURE);
 	return (0);
 }

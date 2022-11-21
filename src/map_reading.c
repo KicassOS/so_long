@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 17:00:16 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 08:17:17 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	*ft_alloc_map_contents(t_program *program, char *map_name)
 	map_contents = ft_calloc(ft_get_map_length(map_name, program) + 1, sizeof(char));
 	if (map_contents == NULL)
 	{
-		ft_print_error("Could not allocate memory for map_contents");
+		ft_printf("Error\nCould not allocate memory for map_contents\n");
 		ft_close(program, SO_LONG_ERROR);
 	}
 	return (map_contents);

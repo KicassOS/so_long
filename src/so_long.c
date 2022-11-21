@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 07:09:37 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 08:37:20 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ char	*ft_check_errors(int argc, char **argv, t_program *program)
 
 	if (argc != 2)
 	{
-		ft_printf("Error\nSo_long expects 1 argument, but got %d", argc - 1);
-		exit(SO_LONG_ERROR);
+		ft_printf("Error\nSo_long expects 1 argument, but got %d\n", argc - 1);
+		ft_close(program, SO_LONG_ERROR);
 	}
 	if (!ft_check_file_format(argv[1]))
 	{
 		ft_print_error("Invalid file format, file must have a .ber extension");
-		exit(0);
+		ft_close(program, SO_LONG_ERROR);
 	}
 	map_contents = ft_read_map_file(program, argv[1]);
 	program->map_contents_alloc = 1;
-	if (!ft_map_is_valid(map_contents))
+	if (!ft_map_is_valid(map_contents, program))
 	{
-		ft_printf("Map is not valid\n");
+		ft_print_error("Map is not valid\n");
 		ft_close(program, SO_LONG_ERROR);
 	}
 	return (map_contents);
@@ -48,6 +48,9 @@ void	ft_init_program(int argc, char **argv, t_program *p)
 	p->key_alloc = 0;
 	p->door_alloc = 0;
 	p->floor_alloc = 0;
+	p->mlx_alloc = 0;
+	p->win_created = 0;
+	p->movements = 0;
 	p->map_contents = ft_check_errors(argc, argv, p);
 	p->m_w = ft_get_map_width(p->map_contents);
 	p->m_h = ft_get_map_height(p->map_contents);
@@ -56,7 +59,6 @@ void	ft_init_program(int argc, char **argv, t_program *p)
 	ft_create_images(p);
 	p->i_s = IMAGE_SIZE;
 	p->coins = ft_count_coins(p);
-	p->movements = 0;
 	ft_find_player(p);
 }
 
