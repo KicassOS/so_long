@@ -6,13 +6,13 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 06:06:59 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 08:59:00 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:57:57 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	ft_handle_input(int	key, t_program *p)
+int	ft_handle_input(int key, t_program *p)
 {
 	if (key == W_KEY || key == UP_ARROW)
 		ft_move(p, p->player_pos->x, p->player_pos->y - 1);

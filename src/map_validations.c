@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 00:31:28 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/18 06:03:59 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:59:02 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	ft_map_minimum_size(char *map_contents)
 {
 	int	width;
 	int	height;
-	
+
 	width = ft_get_map_width(map_contents);
 	height = ft_get_map_height(map_contents);
 	if (width < 3 || height < 3)

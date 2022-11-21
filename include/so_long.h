@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 15:19:17 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:00:44 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,6 @@ void	ft_draw_sprite(t_program *program, void *img, int x, int y);
 /* input_handling.c */
 void	ft_find_player(t_program *p);
 void	ft_move(t_program *p, int new_x, int new_y);
-int		ft_handle_input(int	key, t_program *p);
+int		ft_handle_input(int key, t_program *p);
 
 #endif

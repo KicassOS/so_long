@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 17:48:08 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:58:46 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_init_program(int argc, char **argv, t_program *p)
 
 int	main(int argc, char **argv)
 {
-	t_program *program;
+	t_program	*program;
 
 	program = ft_calloc(1, sizeof(t_program));
 	if (program == NULL)
@@ -74,10 +74,12 @@ int	main(int argc, char **argv)
 	}
 	ft_init_program(argc, argv, program);
 	ft_render_map(program);
-	mlx_hook(program->window, KeyPress, KeyPressMask, ft_handle_input, (void *) program);
+	mlx_hook(program->window, KeyPress, KeyPressMask, \
+	ft_handle_input, (void *) program);
 	mlx_hook(program->window, \
 	DestroyNotify, ButtonPressMask, ft_close_hook, (void *) program);
-	mlx_hook(program->window, Expose, ExposureMask, ft_render_map, (void *) program);
+	mlx_hook(program->window, Expose, ExposureMask, \
+	ft_render_map, (void *) program);
 	mlx_loop(program->mlx);
 	ft_close(program, EXIT_SUCCESS);
 	return (0);

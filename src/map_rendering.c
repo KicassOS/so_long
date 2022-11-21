@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 05:00:13 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 05:40:57 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:02:20 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void	ft_check_tile(t_program *p, int x, int y)
 
 void	ft_draw_sprite(t_program *p, void *img, int x, int y)
 {
-	mlx_put_image_to_window(p->mlx, p->window, img, x * p->i_s, y*p->i_s);
+	mlx_put_image_to_window(p->mlx, p->window, img, x * p->i_s, y * p->i_s);
 }

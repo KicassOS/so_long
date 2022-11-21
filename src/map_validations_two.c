@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 17:46:22 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:03:34 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /* returns 1 if there's only one P node in the map, 0 if not */
 char	ft_only_one_starting_pos(char *map_contents)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (*map_contents)
@@ -43,14 +43,14 @@ char	ft_map_is_valid_second(char *map_contents, t_program *p)
 	if (!ft_map_minimum_size(map_contents))
 	{
 		free(map_contents);
-		ft_print_error("The map is impossible to play as it's size is too small");
+		ft_print_error("The map's size is too small");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);
 	}
 	if (!ft_only_one_starting_pos(map_contents))
 	{
 		free(map_contents);
-		ft_print_error("The map has multiple starting positions for the player");
+		ft_print_error("The map has multiple player positions");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);
 	}

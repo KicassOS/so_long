@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 22:32:41 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 08:20:10 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:57:39 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_print_error(char *error_message)
 **opens the file file_name with specified flags, handles potential errors
 ** and prints an appropriate error message
 */
-int	ft_open(char *file_name, int flags,t_program *p)
+int	ft_open(char *file_name, int flags, t_program *p)
 {
 	int	fd;
 
@@ -46,6 +46,7 @@ int	ft_open(char *file_name, int flags,t_program *p)
 	}
 	return (fd);
 }
+
 /*
 ** prints the number of movements the player made to the shell and the window
 */

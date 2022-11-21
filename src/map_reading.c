@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 14:51:27 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 08:17:17 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:00:17 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@ size_t	ft_get_map_length(char *map_name, t_program *p)
 	return (length);
 }
 
-char	*ft_alloc_map_contents(t_program *program, char *map_name)
+char	*ft_alloc_map_contents(t_program *p, char *m_name)
 {
 	char	*map_contents;
 
-	map_contents = ft_calloc(ft_get_map_length(map_name, program) + 1, sizeof(char));
+	map_contents = ft_calloc(ft_get_map_length(m_name, p) + 1, sizeof(char));
 	if (map_contents == NULL)
 	{
 		ft_printf("Error\nCould not allocate memory for map_contents\n");
-		ft_close(program, SO_LONG_ERROR);
+		ft_close(p, SO_LONG_ERROR);
 	}
 	return (map_contents);
 }
