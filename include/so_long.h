@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 05:26:28 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 07:03:05 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,49 @@
 # include <stdio.h>
 # include "libft.h"
 # include "mlx.h"
-# include <X11/keysymdef.h>
 # include <X11/X.h>
 
 # define IMAGE_SIZE 42
 # define SO_LONG_ERROR 42
 
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define ESC_KEY 65307
+
+typedef struct s_position
+{
+	int	x;
+	int	y;
+}	t_position;
+
 typedef struct s_program {
-	void	*mlx;
-	void	*window;
-	char	*map_contents;
-	char	**map;
-	int		m_h;
-	int		m_w;
-	int		i_s;
-	int		movements;
-	int		coins;
-	void	*wall_image;
-	void	*player_image;
-	void	*key_image;
-	void	*door_image;
-	void	*floor_image;
-	char	map_alloc;
-	char	map_contents_alloc;
-	char	wall_alloc;
-	char	player_alloc;
-	char	key_alloc;
-	char	door_alloc;
-	char	floor_alloc;
-	char	mlx_alloc;
-	char	win_created;
+	void		*mlx;
+	void		*window;
+	char		*map_contents;
+	char		**map;
+	t_position	*player_pos;
+	int			m_h;
+	int			m_w;
+	int			i_s;
+	int			movements;
+	int			coins;
+	void		*wall_image;
+	void		*player_image;
+	void		*key_image;
+	void		*door_image;
+	void		*floor_image;
+	char		map_alloc;
+	char		map_contents_alloc;
+	char		wall_alloc;
+	char		player_alloc;
+	char		key_alloc;
+	char		door_alloc;
+	char		floor_alloc;
+	char		mlx_alloc;
+	char		win_created;
+	char		playpos_alloc;
 }	t_program;
 
 /* utils.c */
@@ -103,10 +116,16 @@ void	ft_destroy_images(t_program *program);
 void	ft_free_program(t_program *program);
 void	ft_free_map(t_program *program);
 int		ft_close_hook(t_program *program);
+void	ft_victory(t_program *program);
 
 /* map_rendering.c */
 int		ft_render_map(t_program *program);
 void	ft_check_tile(t_program *p, int x, int y);
 void	ft_draw_sprite(t_program *program, void *img, int x, int y);
+
+/* input_handling.c */
+void	ft_find_player(t_program *p);
+void	ft_move(t_program *p, int new_x, int new_y);
+int		ft_handle_input(int	key, t_program *p);
 
 #endif

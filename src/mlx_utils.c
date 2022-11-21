@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 16:57:20 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/19 16:59:10 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 06:13:14 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 ** allocated memory */
 void	ft_close(t_program *program, char exit_code)
 {
+	ft_printf("Movements: %d\n", program->movements);
 	ft_free_program(program);
 	exit(exit_code);
 }

@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:39:53 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 05:41:04 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 07:09:37 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ char	*ft_check_errors(int argc, char **argv, t_program *program)
 
 void	ft_init_program(int argc, char **argv, t_program *p)
 {
+	p->playpos_alloc = 0;
 	p->map_alloc = 0;
 	p->map_contents_alloc = 0;
 	p->wall_alloc = 0;
@@ -56,6 +57,7 @@ void	ft_init_program(int argc, char **argv, t_program *p)
 	p->i_s = IMAGE_SIZE;
 	p->coins = ft_count_coins(p);
 	p->movements = 0;
+	ft_find_player(p);
 }
 
 int	main(int argc, char **argv)
@@ -64,10 +66,10 @@ int	main(int argc, char **argv)
 
 	ft_init_program(argc, argv, &program);
 	ft_render_map(&program);
-	// mlx_hook(program.window, KeyPress, KeyPressMask, ft_handle_input, (void *) &program);
+	mlx_hook(program.window, KeyPress, KeyPressMask, ft_handle_input, (void *) &program);
 	mlx_hook(program.window, \
 	DestroyNotify, ButtonPressMask, ft_close_hook, (void *) &program);
-	// mlx_hook(program.window, Expose, ExposureMask, ft_render_map, (void *) &program);
+	mlx_hook(program.window, Expose, ExposureMask, ft_render_map, (void *) &program);
 	mlx_loop(program.mlx);
 	ft_close(&program, EXIT_SUCCESS);
 	return (0);
