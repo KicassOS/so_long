@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 18:14:22 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 08:25:17 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:46:22 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,21 @@ char	ft_map_is_valid_second(char *map_contents, t_program *p)
 {
 	if (!ft_surrounded_by_walls(map_contents))
 	{
+		free(map_contents);
 		ft_print_error("The map is not surrounded by walls");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);
 	}
 	if (!ft_map_minimum_size(map_contents))
 	{
+		free(map_contents);
 		ft_print_error("The map is impossible to play as it's size is too small");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);
 	}
 	if (!ft_only_one_starting_pos(map_contents))
 	{
+		free(map_contents);
 		ft_print_error("The map has multiple starting positions for the player");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);
@@ -59,18 +62,21 @@ char	ft_map_is_valid(char *map_contents, t_program *p)
 {
 	if (!ft_check_nodes_present(map_contents))
 	{
+		free(map_contents);
 		ft_print_error("Not all nodes (1, C, E, P) are present");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);
 	}
 	if (!ft_map_is_rectangular(map_contents))
 	{
+		free(map_contents);
 		ft_print_error("The map is not rectangular");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);
 	}
 	if (!ft_map_no_other_nodes(map_contents))
 	{
+		free(map_contents);
 		ft_print_error("The map contains nodes other than 0, 1, C, E, P");
 		ft_close(p, SO_LONG_ERROR);
 		return (0);

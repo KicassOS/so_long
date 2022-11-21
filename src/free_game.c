@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 06:03:01 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 08:39:55 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:50:02 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_free_program(t_program *program)
 		free(program->mlx);
 	if (program->playpos_alloc == 1)
 		free(program->player_pos);
+	free(program);
 }
 
 int	ft_close_hook(t_program *program)

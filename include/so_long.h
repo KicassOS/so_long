@@ -6,7 +6,7 @@
 /*   By: pszleper < pszleper@student.42.fr >        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:54:17 by pszleper          #+#    #+#             */
-/*   Updated: 2022/11/21 09:00:20 by pszleper         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:19:17 by pszleper         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,6 @@ char	ft_last_line_only_walls(char *map_contents);
 char	ft_left_column_only_walls(char *map_contents);
 char	ft_right_column_only_walls(char *map_contents);
 char	ft_surrounded_by_walls(char *map_contents);
-
-/* error_handling.c */
-void	ft_check_errors_main(char *map_contents);
 
 /*map_reading.c */
 size_t	ft_get_map_length(char *map_name, t_program *p);
